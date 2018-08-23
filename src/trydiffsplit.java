@@ -63,7 +63,7 @@ public class trydiffsplit {
 
 
 		//System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-		System.out.println("Old Revision Line Details:");
+		System.out.println("\nOld Revision Line Details:");
 		System.out.println("**************************");
 		for(int j=0;j<oldfilelinedetails.length;j++)
 		{
@@ -113,11 +113,22 @@ public class trydiffsplit {
 						flag = 1;
 
 						String parameter="";
-
 						List<AstNode> params = FullParRevFDArray[i].getParams();
+						int size=params.size();
+						int s=0;
 						for(AstNode paramNod : params)
 						{
-							parameter = parameter + paramNod.getString()+",";
+							s++;
+							if(s==size)
+							{
+								parameter = parameter + paramNod.getString();
+							}
+							else
+							{
+								parameter = parameter + paramNod.getString()+",";
+							}
+							
+							//parameter = parameter + paramNod.getString()+",";
 							/*System.out.println("name of parameter:"+paramNod.getString()
 								+" type:"+paramNod.getType());*/
 						}
@@ -160,12 +171,21 @@ public class trydiffsplit {
 						flag = 1;
 
 						String parameter="";
-
 						List<AstNode> params = FullCurRevFDArray[i].getParams();
+						int size=params.size();
+						int s=0;
 						for(AstNode paramNod : params)
 						{
-							
-							parameter = parameter + paramNod.getString()+",";
+							s++;
+							if(s==size)
+							{
+								parameter = parameter + paramNod.getString();
+							}
+							else
+							{
+								parameter = parameter + paramNod.getString()+",";
+							}
+							//parameter = parameter + paramNod.getString()+",";
 							/*System.out.println("name of parameter:"+paramNod.getString()
 								+" type:"+paramNod.getType());*/
 						}
